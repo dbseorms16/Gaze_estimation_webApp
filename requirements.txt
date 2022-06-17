@@ -1,0 +1,5 @@
+torch
+torchvision
+flask
+Pillow # for client test
+requests # for client test

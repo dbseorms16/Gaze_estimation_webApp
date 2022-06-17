@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>{{title}}</title>
+</head>
+<body>
+
+<div class="container">
+    <div class='mt-3 row justify-content-center'>
+        <button class="btn btn-primary" type="button" >시선 추정을 이용한 강의 동영상 라벨링 프로그램</button>
+    </div>
+    <div class="row justify-content-center">
+            <img src="{{ url_for('video_feed') }}" width="70%">
+    </div>
+
+    </div>
+</div>
+    <div class='mt-2 row justify-content-center'>
+        <form action="http://127.0.0.1:5000/post" method="post" class="input-form">
+        <button onclick=handleSubmit type="text" class="btn btn-outline-success">
+            강의 동영상 좌표 라벨링 테스트 하기
+        </button>
+        </form>
+    </div>
+<div>
+
+
+</div>
+</body>
+</html>
+<script>
+    import axios from 'axios'
+    const input_form = document.querySelector('.input-form')
+    const toDoInput = input_form.querySelector('input')
+
+    function handleSubmit(event) {
+        event.preventDefault()
+        primary(event)
+
+        axios.get(`/post`, {
+            headers: {
+              'Content-type': 'application/x-www-form-urlencoded',
+            },
+            id : 'hong',
+            pwd: '12345'
+          })
+          .then( response => {
+            console.log('response', JSON.stringify(response, null, 2))
+          }).catch( error => {
+            console.log('failed', error)
+          })
+    }
+    
+    input_form.addEventListener('submit', handleSubmit)
+
+</script>
