@@ -19,6 +19,14 @@ python flask_server.py
 ```
 
 ### test
+```
+각 가중치를 받아 해당 폴더에 위치한후 
+python flack_server.py 실행
 
+- 시선추정 결과 백터로 시각화
+http://127.0.0.1:5000/
 
+-강의 동영상 좌표 라벨링 테스트
+http://127.0.0.1:5000/post
 
+```
